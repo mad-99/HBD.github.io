@@ -61,7 +61,7 @@ let transition = (currentScene) => {
     one by one, a button(bulb) appears and the user is asked to click the button to swith on the lights.
 */ 
 
-document.querySelector(".btn-ref p").innerHTML = "Click the Light Bulb.";
+document.querySelector(".btn-ref p").innerHTML = "Tap the Light to begin ✨";
 
 readMsg(blackText);
 
@@ -78,7 +78,7 @@ button.addEventListener("click",function(){
 
         light.play();
         transition(blackbox);
-        document.querySelector(".btn-ref p").innerHTML = "Click the Door";
+        document.querySelector(".btn-ref p").innerHTML = "Tap the Door 💕";
         setTimeout(function() {
             button.classList.add("door-out");
             button.classList.remove("switch");
@@ -90,13 +90,15 @@ button.addEventListener("click",function(){
     else if(button.classList.contains("door-out")) {
 
         /* 
-            when the door is pressed, scene changes to cemetry. Again, the msg will be displayed, after 
-            which, the user will be asked to come inside and the button with door will appear again.
+            when the door is pressed, scene changes to a soft moonlit garden. A gentle, romantic
+            tune plays while the loving msg is displayed, after which the user is invited back
+            inside and the door button appears again.
         */
         
         door.play();
         transition(room);
         setTimeout(function() {
+            haunt.volume = 0.4;
             haunt.play();
             haunt.loop = true;
             button.classList.add("door-in");
@@ -115,7 +117,7 @@ button.addEventListener("click",function(){
         
         door.play();
         transition(hallway);
-        document.querySelector(".btn-ref p").innerHTML = "Click the Gift";
+        document.querySelector(".btn-ref p").innerHTML = "Open my Gift 🎁";
         setTimeout(function() {
             button.classList.add("gift");
             button.classList.remove("door-in");
